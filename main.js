@@ -4,12 +4,14 @@ const scoreText = document.querySelector("#scoreText");
 const resetBtn = document.querySelector("#resetBtn");
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
-const boardBackground = "black";
-const snakeColor = "lightgreen";
-const snakeBorder = "darkgreen";
+const boardBackground = "#b0db05";
+const snakeColor = "#273608";
+const snakeBorder = "#b0db05";
 const foodColor = "red";
-const foodBorder = "white";
+const foodBorder = "#b0db05";
 const unitSize = 25;
+let foodNumber = 0;
+let gameNumber = 1;
 let running = false;
 let xVelocity = unitSize;
 let yVelocity = 0;
@@ -17,10 +19,10 @@ let foodX;
 let foodY;
 let score = 0;
 let snake = [
-    {x:unitSize * 4, y:0},
+    /*{x:unitSize * 4, y:0},
     {x:unitSize * 3, y:0},
-    {x:unitSize * 2, y:0},
-    {x:unitSize, y:0},
+    {x:unitSize * 2, y:0},*/// Snake qui commence direct à 5 blocks
+    {x:unitSize, y:0}, 
     {x:0, y:0}
 ];
 
@@ -31,12 +33,13 @@ gameStart();
 
 function gameStart(){
     running = true;
-    scoreText.textContent = score;
+    scoreText.textContent = "score : " + score;
     createFood();
     drawFood();
     nextTick();
 };
 function nextTick(){
+    
     if(running){
         setTimeout(()=>{
             clearBoard();
@@ -57,14 +60,17 @@ function clearBoard(){
     ctx.fillRect(0, 0, gameWidth, gameHeight)  
 };
 function createFood(){
+    foodNumber+=1;
     function randomFood(min, max){
         const randNum = Math.round((Math.random() * (max - min) + min) / unitSize) * unitSize;
         return randNum;
     }
     foodX = randomFood (0, gameWidth - unitSize);
     foodY = randomFood (0, gameWidth - unitSize);
-    console.log("foodX = " + foodX)
-    console.log("foodY = " + foodY)
+    console.log("Partie " + gameNumber + 
+    " : Fruit " + foodNumber + 
+    " = X : " + foodX + " | Y : " + foodY); // Log des positions des fruits
+    
 };
 function drawFood(){
     ctx.fillStyle = foodColor; // Attribuer la couleur de fond de la pomme
@@ -79,8 +85,8 @@ function moveSnake(){
     snake.unshift(head)
     // Si la pomme est mangée
     if(snake[0].x == foodX && snake[0].y == foodY){
-        score+=1;
-        scoreText.textContent = score;
+        score +=1;
+        scoreText.textContent = "score : " + score;
         createFood(); // Une fois qu'une pomme est mangée en faire apparaitre une autre
     }
     else{
@@ -123,7 +129,7 @@ function changeDirection(event){
         case(keyPressed == DOWN && !goingUp): // Dans snake on ne peut pas aller vers le bas puis vers le haut instantanement
             xVelocity = 0 // Car on est pas entrain d'aller à gauche et à droite
             yVelocity = unitSize
-            break; 
+            break;
     }
 };
 function checkGameOver(){
@@ -148,22 +154,26 @@ function checkGameOver(){
     }
 };
 function displayGameOver(){
-    ctx.font = "75px MV Terasong";
-    ctx.fillStyle = "white";
+    clearBoard();
+    ctx.font = "70px 'NokiaFont', sans-serif";
+    ctx.fillStyle = "#273608";
     ctx.textAlign = "center";
-    ctx.fillText("GAME OVER", gameWidth / 2, gameHeight / 2);
-    running = false;
+    ctx.fillText("GAME", gameWidth / 2, gameHeight / 2.2);
+    ctx.fillText("OVER", gameWidth / 2, gameHeight / 1.6);
+    running = false; // Arrêt du jeu
 };
 function resetGame(){
+    gameNumber +=1;
     score = 0;
+    foodNumber = 0;
     xVelocity = unitSize;
     yVelocity = 0;
 
         snake = [
-        {x:unitSize * 4, y:0},
+        /*{x:unitSize * 4, y:0},
         {x:unitSize * 3, y:0},
         {x:unitSize * 2, y:0},
-        {x:unitSize, y:0},
+        {x:unitSize, y:0},*/ // Snake qui commence direct à 5 blocks
         {x:0, y:0}
     ];
     gameStart();
