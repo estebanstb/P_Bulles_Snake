@@ -1,3 +1,9 @@
+// Projet : P_Bulles_Snake-PCX
+// Auteur : LEBET Esteban
+// Classe : CID2A
+// Date : 07.11.2023
+
+
 const gameBoard = document.querySelector("#gameBoard");
 const ctx = gameBoard.getContext("2d");
 const scoreText = document.querySelector("#scoreText");
