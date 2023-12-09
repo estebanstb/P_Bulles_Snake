@@ -2,6 +2,7 @@
 
 ## Description 
 Projet fait dans le cadre de ma formation, ce projet ce tient sur 8 semaines avec 5 périodes de travail par semaine.
+
 1 période = 45 minutes, ce qui fait 3h45 par semaine
 
 ## Images
