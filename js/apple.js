@@ -22,7 +22,6 @@ export class Apple {
     drawFood(ctx) {
         let foodImage = new Image();
         foodImage.src = "images/grayishApplePixel.png";
-
         ctx.drawImage(foodImage, this.foodX, this.foodY, this.unitSize, this.unitSize);
     }
 }
