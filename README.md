@@ -1,9 +1,9 @@
 # P_Bulles_Snake ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
 ## Description 
-I did this project as part of my formation. The project needed to be made in 8 weeks with 4 periods of work per week.
+I did this project as part of my formation. The project needed to be made in 8 weeks with 5 periods of work per week.
 
-1 period = 45 minutes, which makes 3 hours per week.
+1 period = 45 minutes, which makes it 3 hours and 45 minutes per week.
 
 ## Images
 Project not finished yet.
