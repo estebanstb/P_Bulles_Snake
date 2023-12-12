@@ -9,16 +9,19 @@
 }
 
 body{
+    background-color: #181a1b;
+    color: #e8e6e3;
     font-family: 'NokiaFont', sans-serif;
 }
 
 #gameContainer{
+    color: #e8e6e3;
     text-align: center;
 }
 
 #gameBoard{
     border: 3px solid;
-    border-color: #000000;
+    border-color: #736b5e;
     background-color: #add8c1;
 }
 
@@ -28,6 +31,8 @@ body{
 }
 
 button{
+    color: white;
+    background-color: #181a1b;
     text-align: center;
     font-family: 'NokiaFont', sans-serif;
     font-size: 20px;
