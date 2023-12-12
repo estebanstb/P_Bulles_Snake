@@ -1,51 +1,92 @@
-class Snake {
-    constructor(unitSize, context, snakeColor, snakeBorder) {
-        this.body = [
+export class Snake {
+        constructor(unitSize, apple, snakeColor, snakeBorder, score, scoreText) {
+        this.unitSize = unitSize;
+        this.xVelocity = unitSize;
+        this.yVelocity = 0;
+        this.snake = [
             { x: unitSize, y: 0 },
             { x: 0, y: 0 }
         ];
-        this.ctx = context;
+        this.apple = apple;
         this.snakeColor = snakeColor;
         this.snakeBorder = snakeBorder;
+        this.score = score; // Ajout de la référence à score
+        this.scoreText = scoreText;
     }
 
-    move(xVelocity, yVelocity) {
-        const head = { x: this.body[0].x + xVelocity, y: this.body[0].y + yVelocity };
-        this.body.unshift(head);
+    moveSnake() {
+        const head = {
+            x: this.snake[0].x + this.xVelocity,
+            y: this.snake[0].y + this.yVelocity
+        };
 
-        if (this.body[0].x === apple.x && this.body[0].y === apple.y) {
-            score += 1;
-            scoreText.textContent = "SCORE : " + score;
-            apple.create();
+        this.snake.unshift(head);
+
+        if (this.snake[0].x == this.apple.foodX && this.snake[0].y == this.apple.foodY) {
+            this.score += 1;
+            this.scoreText.textContent = "SCORE : " + this.score;
+            this.apple.createFood();
         } else {
-            this.body.pop();
+            this.snake.pop();
         }
     }
 
-    draw() {
-        this.ctx.fillStyle = this.snakeColor;
-        this.ctx.strokeStyle = this.snakeBorder;
-        this.body.forEach(snakePart => {
-            this.ctx.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);
-            this.ctx.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);
+    drawSnake(ctx) {
+        ctx.fillStyle = this.snakeColor;
+        ctx.strokeStyle = this.snakeBorder;
+        this.snake.forEach(snakePart => {
+            ctx.fillRect(snakePart.x, snakePart.y, this.unitSize, this.unitSize);
+            ctx.strokeRect(snakePart.x, snakePart.y, this.unitSize, this.unitSize);
         });
     }
 
-    checkCollision() {
-        if (
-            this.body[0].x < 0 ||
-            this.body[0].x >= gameWidth ||
-            this.body[0].y < 0 ||
-            this.body[0].y >= gameHeight
-        ) {
-            running = false;
-        }
+    changeDirection(event) {
+        const keyPressed = event.keyCode;
+        const LEFT = 37;
+        const UP = 38;
+        const RIGHT = 39;
+        const DOWN = 40;
 
-        for (let i = 1; i < this.body.length; i += 1) {
-            if (this.body[i].x === this.body[0].x && this.body[i].y === this.body[0].y) {
-                running = false;
-            }
+        const goingUp = this.yVelocity == -this.unitSize;
+        const goingDown = this.yVelocity == this.unitSize;
+        const goingRight = this.xVelocity == this.unitSize;
+        const goingLeft = this.xVelocity == -this.unitSize;
+
+        switch (true) {
+            case keyPressed == LEFT && !goingRight:
+                this.xVelocity = -this.unitSize;
+                this.yVelocity = 0;
+                break;
+            case keyPressed == UP && !goingDown:
+                this.xVelocity = 0;
+                this.yVelocity = -this.unitSize;
+                break;
+            case keyPressed == RIGHT && !goingLeft:
+                this.xVelocity = this.unitSize;
+                this.yVelocity = 0;
+                break;
+            case keyPressed == DOWN && !goingUp:
+                this.xVelocity = 0;
+                this.yVelocity = this.unitSize;
+                break;
         }
     }
+
+    checkCollision() {
+        for (let i = 1; i < this.snake.length; i += 1) {
+            if (this.snake[i].x == this.snake[0].x && this.snake[i].y == this.snake[0].y) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    resetSnake() {
+        this.snake = [
+            { x: this.unitSize, y: 0 },
+            { x: 0, y: 0 }
+        ];
+        this.xVelocity = this.unitSize;
+        this.yVelocity = 0;
+    }
 }
-export default Snake;
