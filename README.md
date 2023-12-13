@@ -6,7 +6,8 @@ I did this project as part of my formation. The project needed to be made in 8 w
 1 period = 45 minutes, which makes it 3 hours and 45 minutes per week.
 
 ## Images
-Project not finished yet.
+<img src="https://github.com/estebanstb/P_Bulles_Snakes/blob/main/images/screenshots/gameRunning_Snake.png"></img>
+<img src="https://github.com/estebanstb/P_Bulles_Snakes/blob/main/images/screenshots/gameOver_Snake.png"></img>
 
 ## How to use the project
 1) Install the project as a zip file.
