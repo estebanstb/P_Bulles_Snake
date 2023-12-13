@@ -88,5 +88,6 @@ export class Snake {
         ];
         this.xVelocity = this.unitSize;
         this.yVelocity = 0;
+        this.score = 0;
     }
 }
