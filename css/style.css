@@ -17,12 +17,20 @@ body{
 #gameContainer{
     color: #e8e6e3;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 850px;
+    align-items: center;
+    justify-content: center;
 }
 
 #gameBoard{
     border: 3px solid;
     border-color: #736b5e;
     background-color: #add8c1;
+    /*box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;*/
+    /*width: 100%;*/
+    /*height: 100%; Pour faire que le jeu se passe sur tout l'écran*/
 }
 
 #scoreText{

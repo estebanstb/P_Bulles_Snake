@@ -9,7 +9,6 @@ export class Apple {
     }
 
     createFood() {
-        this.foodNumber += 1;
         const randomFood = (min, max) => {
             const randNum = Math.round((Math.random() * (max - min) + min) / this.unitSize) * this.unitSize;
             return randNum;
@@ -17,6 +16,7 @@ export class Apple {
         this.foodX = randomFood(0, this.gameWidth - this.unitSize);
         this.foodY = randomFood(0, this.gameWidth - this.unitSize);
         console.log("Fruit " + this.foodNumber + ": X: " + this.foodX + " | Y: " + this.foodY);
+        this.foodNumber += 1;
     }
 
     drawFood(ctx) {

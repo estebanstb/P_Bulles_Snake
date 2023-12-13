@@ -7,6 +7,7 @@ import { Apple } from "./apple.js";
 import { Snake } from "./snake.js";
 
 const gameBoard = document.querySelector("#gameBoard");
+// const boxShadow = document.querySelector("#gameBoard").style["boxShadow"] = "0 0 200px #99999";
 const ctx = gameBoard.getContext("2d");
 const scoreText = document.querySelector("#scoreText");
 const resetBtn = document.querySelector("#resetBtn");
@@ -84,6 +85,5 @@ function displayGameOver() {
 function resetGame() {
     score = 0;
     snake.resetSnake();
-    apple.createFood();
     gameStart();
 }
