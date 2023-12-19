@@ -1,5 +1,14 @@
+// Projet : P_Bulles_Snake-PCX
+// Auteur : LEBET Esteban
+// Classe : CID2A
+// Date : 07.11.2023
+// Description : Fichier géreant la taille du serpent, son mouvement, ses collisions et si il mange une pomme ou non
+// Lieu : ETML, Sébeillon
+
+// Représente le serpent du jeu
 export class Snake {
-        constructor(unitSize, apple, snakeColor, snakeBorder, score, scoreText) {
+    constructor(unitSize, apple, snakeColor, snakeBorder, score, scoreText) {
+        // Propriétés du serpent
         this.unitSize = unitSize;
         this.xVelocity = unitSize;
         this.yVelocity = 0;
@@ -10,10 +19,11 @@ export class Snake {
         this.apple = apple;
         this.snakeColor = snakeColor;
         this.snakeBorder = snakeBorder;
-        this.score = score; // Ajout de la référence à score
+        this.score = score; // Référence au score
         this.scoreText = scoreText;
     }
 
+    // Méthode pour déplacer le serpent
     moveSnake() {
         const head = {
             x: this.snake[0].x + this.xVelocity,
@@ -31,6 +41,7 @@ export class Snake {
         }
     }
 
+    // Méthode pour dessiner le serpent sur le gameboard
     drawSnake(ctx) {
         ctx.fillStyle = this.snakeColor;
         ctx.strokeStyle = this.snakeBorder;
@@ -40,12 +51,13 @@ export class Snake {
         });
     }
 
+    // Méthode pour changer la direction du serpent en fonction de la touche du clavier
     changeDirection(event) {
         const keyPressed = event.keyCode;
-        const LEFT = 37;
-        const UP = 38;
-        const RIGHT = 39;
-        const DOWN = 40;
+        const LEFT = 37; // 37 = chiffre atribué à la touche flèche de gauche
+        const UP = 38; // 38 = chiffre atribué à la touche flèche de haut
+        const RIGHT = 39; // 39 = chiffre atribué à la touche flèche de droite
+        const DOWN = 40; // 40 = chiffre atribué à la touche flèche du bas
 
         const goingUp = this.yVelocity == -this.unitSize;
         const goingDown = this.yVelocity == this.unitSize;
@@ -72,6 +84,7 @@ export class Snake {
         }
     }
 
+    // Méthode pour vérifier si le serpent entre en collision avec lui-même
     checkCollision() {
         for (let i = 1; i < this.snake.length; i += 1) {
             if (this.snake[i].x == this.snake[0].x && this.snake[i].y == this.snake[0].y) {
@@ -81,10 +94,12 @@ export class Snake {
         return false;
     }
 
+    // Méthode pour réinitialiser le serpent
     resetSnake() {
-        this.snake = [
+        this.snake = 
+        [
             { x: this.unitSize, y: 0 },
-            { x: 0, y: 0 }
+            { x: 0, y: 0 }          
         ];
         this.xVelocity = this.unitSize;
         this.yVelocity = 0;

@@ -1,5 +1,14 @@
+// Projet : P_Bulles_Snake-PCX
+// Auteur : LEBET Esteban
+// Classe : CID2A
+// Date : 07.11.2023
+// Description : Fichier qui fait apparaître des pommes aléatoirement et les dessine
+// Lieu : ETML, Sébeillon
+
+// Classe représentant la pomme du jeu
 export class Apple {
     constructor(unitSize, gameWidth, gameHeight) {
+        // Propriétés de la pomme
         this.unitSize = unitSize;
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
@@ -8,6 +17,7 @@ export class Apple {
         this.foodNumber = 0;
     }
 
+    // Méthode pour créer une nouvelle position de la pomme de manière aléatoire
     createFood() {
         const randomFood = (min, max) => {
             const randNum = Math.round((Math.random() * (max - min) + min) / this.unitSize) * this.unitSize;
@@ -19,6 +29,7 @@ export class Apple {
         this.foodNumber += 1;
     }
 
+    // Méthode pour dessiner la pomme sur le gameboard
     drawFood(ctx) {
         let foodImage = new Image();
         foodImage.src = "images/grayishApplePixel.png";
