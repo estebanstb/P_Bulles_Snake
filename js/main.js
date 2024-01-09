@@ -10,20 +10,20 @@ import { Apple } from "./apple.js";
 import { Snake } from "./snake.js";
 
 // Constantes définissant des éléments du jeu
-const gameBoard = document.querySelector("#gameBoard");
+const gameBoard = document.querySelector("#gameBoard"); // Définit la planche de jeu du HTML dans le JavaScript
 const ctx = gameBoard.getContext("2d");
-const scoreText = document.querySelector("#scoreText");
-const resetBtn = document.querySelector("#resetBtn");
-const gameWidth = gameBoard.width;
-const gameHeight = gameBoard.height;
-const boardBackground = "#add8c1";
-const snakeColor = "#273608";
-const snakeBorder = "#add8c1";
-const unitSize = 25;
+const scoreText = document.querySelector("#scoreText"); // Définit le score du jeu du HTML dans le JavaScript
+const resetBtn = document.querySelector("#resetBtn"); //  Définit le bouton de reset du HTML dans le JavaScript
+const gameWidth = gameBoard.width; // Définir la largeur de la planche de jeu
+const gameHeight = gameBoard.height; // Définir la hauteur de la planche de jeu
+const boardBackground = "#add8c1"; // Couleur du fond de la planche du jeu
+const snakeColor = "#273608"; // Couleur du serpent
+const snakeBorder = "#add8c1"; // Couleur de la borudre du serpent
+const unitSize = 25; // La "norme" qui va définir sur quel valeur le jeu doit se baser
 
 // Variables de jeu
-let score = 0;
-let running = false;
+let score = 0; // Score du jeu
+let running = false; // Jeu en marche ou non
 
 // Instance de Apple
 const apple = new Apple(unitSize, gameWidth, gameHeight);
@@ -47,7 +47,7 @@ function gameStart() {
     nextTick();
 }
 
-// Fonction récursive permettant de mettre à jour le jeu à  des intervalles prédéfinis
+// Fonction récursive permettant de mettre à jour le jeu à des intervalles prédéfinis
 function nextTick() {
     if (running) {
         setTimeout(() => {

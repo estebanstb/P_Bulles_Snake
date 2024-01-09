@@ -2,7 +2,7 @@
 // Auteur : LEBET Esteban
 // Classe : CID2A
 // Date : 07.11.2023
-// Description : Fichier qui fait apparaître des pommes aléatoirement et les dessine
+// Description : Classe apple qui fait apparaître des pommes aléatoirement et les dessine
 // Lieu : ETML, Sébeillon
 
 // Classe représentant la pomme du jeu

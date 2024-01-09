@@ -2,7 +2,7 @@
 // Auteur : LEBET Esteban
 // Classe : CID2A
 // Date : 07.11.2023
-// Description : Fichier géreant la taille du serpent, son mouvement, ses collisions et si il mange une pomme ou non
+// Description : Classe snake géreant la taille du serpent, son mouvement, ses collisions et si il mange une pomme ou non
 // Lieu : ETML, Sébeillon
 
 // Représente le serpent du jeu
@@ -25,6 +25,7 @@ export class Snake {
 
     // Méthode pour déplacer le serpent
     moveSnake() {
+        // Définit la tête du serpent
         const head = {
             x: this.snake[0].x + this.xVelocity,
             y: this.snake[0].y + this.yVelocity
