@@ -11,7 +11,7 @@ import { Snake } from "./snake.js";
 
 // Constantes définissant des éléments du jeu
 const gameBoard = document.querySelector("#gameBoard"); // Définit la planche de jeu du HTML dans le JavaScript
-const ctx = gameBoard.getContext("2d");
+const ctx = gameBoard.getContext("2d"); // Définit un contexte de plateau 2D
 const scoreText = document.querySelector("#scoreText"); // Définit le score du jeu du HTML dans le JavaScript
 const resetBtn = document.querySelector("#resetBtn"); //  Définit le bouton de reset du HTML dans le JavaScript
 const gameWidth = gameBoard.width; // Définir la largeur de la planche de jeu

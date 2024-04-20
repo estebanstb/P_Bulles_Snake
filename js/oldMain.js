@@ -1,27 +1,30 @@
 // Projet : P_Bulles_Snake-PCX
 // Auteur : LEBET Esteban
-// Classe : CID2A
-// Date : 07.11.2023
+// Classe : CIN1B
+// Date : 19.04.2024
+// Description : Réplique du jeu "Snake"
+// Lieu : ETML, Sébeillon
 
 
-const gameBoard = document.querySelector("#gameBoard");
+// Constantes définissant des éléments du jeu
+const gameBoard = document.querySelector("#gameBoard"); // Définit la planche de jeu du HTML dans le JavaScript
 const ctx = gameBoard.getContext("2d");
-const scoreText = document.querySelector("#scoreText");
-const resetBtn = document.querySelector("#resetBtn");
-const startBtn = document.querySelector("#startBtn");
-const gameWidth = gameBoard.width;
-const gameHeight = gameBoard.height;
-const boardBackground = "#add8c1";
-const snakeColor = "#273608";
-const snakeBorder = "#add8c1";
-/*const foodColor = "red";
-const foodBorder = "#9ac907";*/
-const unitSize = 25;
+const scoreText = document.querySelector("#scoreText"); // Définit le score du jeu du HTML dans le JavaScript
+const resetBtn = document.querySelector("#resetBtn"); //  Définit le bouton de reset du HTML dans le JavaScript
+const gameWidth = gameBoard.width; // Définir la largeur de la planche de jeu
+const gameHeight = gameBoard.height; // Définir la hauteur de la planche de jeu
+const boardBackground = "#add8c1"; // Couleur du fond de la planche du jeu
+const snakeColor = "#273608"; // Couleur du serpent
+const snakeBorder = "#add8c1"; // Couleur de la borudre du serpent
+const unitSize = 25; // La "norme" qui va définir sur quel valeur le jeu doit se baser
+
+// Variables de jeu
 let foodNumber = 0;
 let gameNumber = 1;
 let running = false;
 let xVelocity = unitSize;
 let yVelocity = 0;
+let gameSpeed = 75;
 let foodX;
 let foodY;
 let score = 0;
@@ -33,11 +36,14 @@ let snake = [
     {x:0, y:0}
 ];
 
+// Référence les touches du claviers et le click de la souris pour le bouton RESET
 window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
 
+// Fonction démarrant le jeu
 gameStart();
 
+// Initialisation du jeu
 function gameStart(){
     running = true;
     scoreText.textContent = "SCORE : " + score;
@@ -45,8 +51,9 @@ function gameStart(){
     drawFood();
     nextTick();
 };
+
+// Fonction récursive permettant de mettre à jour le jeu à des intervalles prédéfinis
 function nextTick(){
-    
     if(running){
         setTimeout(()=>{
             clearBoard();
@@ -55,17 +62,21 @@ function nextTick(){
             drawSnake();
             checkGameOver();
             nextTick();
-        }, 75) // Vitesse de chaque tick
+        }, gameSpeed) // Vitesse de chaque tick: 1000 = 1s, 100 = 0,1s
         
     }
     else{
         displayGameOver();
     }
 };
+
+// Effacer le contenu du gameboard
 function clearBoard(){
     ctx.fillStyle = boardBackground;
     ctx.fillRect(0, 0, gameWidth, gameHeight)  
 };
+
+// Méthode pour créer une nouvelle position de la pomme de manière aléatoire
 function createFood(){
     foodNumber+=1;
     function randomFood(min, max){
@@ -79,13 +90,18 @@ function createFood(){
     " = X : " + foodX + " | Y : " + foodY); // Log des positions des fruits
     
 };
+
+// Méthode pour dessiner la pomme sur le gameboard
 function drawFood(){
     let foodImage = new Image();
     foodImage.src = "images/grayishApplePixel.png";
 
     ctx.drawImage(foodImage, foodX, foodY, unitSize, unitSize);
 };
+
+// Méthode pour déplacer le serpent
 function moveSnake(){
+    // Définit la tête du serpent
     const head = {x: snake[0].x +xVelocity, //nombre positif pour droite, negatif gauche
                   y: snake[0].y +yVelocity,}; 
     
@@ -100,6 +116,8 @@ function moveSnake(){
         snake.pop(); // faire que le corps suive sans qu'il se demultiplie
     }
 };
+
+// Méthode pour dessiner le serpent sur le gameboard
 function drawSnake(){
     ctx.fillStyle = snakeColor; // Attribuer la couleur de fond du snake
     ctx.strokeStyle = snakeBorder; // Attribuer la couleur des contours du snake
@@ -109,9 +127,11 @@ function drawSnake(){
         //let snakeImage = new Image(); snakeImage.src = "images/snakeTexture.jpg"; ctx.drawImage(snakeImage, snakePart.x, snakePart.y, unitSize, unitSize)
     })
 };
+
+// Méthode pour changer la direction du serpent en fonction de la touche du clavier
 function changeDirection(event){
     const keyPressed = event.keyCode
-    const LEFT = 37; // 37 est ce que console.log(keyPressed) me dit quand j'appuie sur flèche de gauche
+    const LEFT = 37; // 37 ce que console.log(keyPressed) me dit quand j'appuie sur flèche de gauche
     const UP = 38;
     const RIGHT = 39;
     const DOWN = 40;
@@ -140,6 +160,8 @@ function changeDirection(event){
             break;
     }
 };
+
+// Vérifier les conditions de fin de jeu
 function checkGameOver(){
     switch(true){
         case (snake[0].x < 0): // Si tête du snake à dépassée la bordure de gauche
@@ -161,15 +183,19 @@ function checkGameOver(){
         } 
     }
 };
+
+// Afficher l'écran de fin de jeu
 function displayGameOver(){
     clearBoard();
     ctx.font = "70px 'NokiaFont', sans-serif";
     ctx.fillStyle = "#273608";
     ctx.textAlign = "center";
-    ctx.fillText("GAME", gameWidth / 2, gameHeight / 3);
-    ctx.fillText("OVER", gameWidth / 2, gameHeight / 2);
+    ctx.fillText("GAME", gameWidth / 2, gameHeight / 2.4);
+    ctx.fillText("OVER", gameWidth / 2, gameHeight / 1.6);
     running = false; // Arrêt du jeu
 };
+
+// Réinitialiser le jeu
 function resetGame(){
     gameNumber +=1;
     foodNumber = 0;
