@@ -40,8 +40,34 @@ let snake = [
 window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
 
+// Effacer le contenu du gameboard
+function clearBoard(){
+    ctx.fillStyle = boardBackground;
+    ctx.fillRect(0, 0, gameWidth, gameHeight)  
+};
+
+function displayMainMenu() {
+    clearBoard();
+    ctx.font = "70px 'NokiaFont', sans-serif";
+    ctx.fillStyle = "#273608";
+    ctx.textAlign = "center";
+    ctx.fillText("SNAKE", gameWidth / 2, gameHeight / 3.5);
+    
+    ctx.font = "35px 'NokiaFont', sans-serif";
+    ctx.fillStyle = "#273608";
+    ctx.textAlign = "center";
+    ctx.fillText("JOUER", gameWidth / 2, gameHeight / 1.65);
+    ctx.fillText("PARAMETRES", gameWidth / 2, gameHeight / 1.4);
+    ctx.fillText("QUITTER", gameWidth / 2, gameHeight / 1.2);
+
+    running = false;
+}
+
+displayMainMenu();
+
+
 // Fonction démarrant le jeu
-gameStart();
+//gameStart();
 
 // Initialisation du jeu
 function gameStart(){
@@ -68,12 +94,6 @@ function nextTick(){
     else{
         displayGameOver();
     }
-};
-
-// Effacer le contenu du gameboard
-function clearBoard(){
-    ctx.fillStyle = boardBackground;
-    ctx.fillRect(0, 0, gameWidth, gameHeight)  
 };
 
 // Méthode pour créer une nouvelle position de la pomme de manière aléatoire
