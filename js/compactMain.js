@@ -60,7 +60,7 @@ function displayMainMenu() {
     ctx.fillText("PARAMETRES", gameWidth / 2, gameHeight / 1.4);
     ctx.fillText("QUITTER", gameWidth / 2, gameHeight / 1.2);
 
-    running = false;
+    running = true;
 }
 
 displayMainMenu();
@@ -114,7 +114,7 @@ function createFood(){
 // Méthode pour dessiner la pomme sur le gameboard
 function drawFood(){
     let foodImage = new Image();
-    foodImage.src = "images/grayishApplePixel.png";
+    foodImage.src = "images/greenApplePixel.png";
 
     ctx.drawImage(foodImage, foodX, foodY, unitSize, unitSize);
 };
