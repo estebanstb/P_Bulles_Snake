@@ -46,28 +46,8 @@ function clearBoard(){
     ctx.fillRect(0, 0, gameWidth, gameHeight)  
 };
 
-function displayMainMenu() {
-    clearBoard();
-    ctx.font = "70px 'NokiaFont', sans-serif";
-    ctx.fillStyle = "#273608";
-    ctx.textAlign = "center";
-    ctx.fillText("SNAKE", gameWidth / 2, gameHeight / 3.5);
-    
-    ctx.font = "35px 'NokiaFont', sans-serif";
-    ctx.fillStyle = "#273608";
-    ctx.textAlign = "center";
-    ctx.fillText("JOUER", gameWidth / 2, gameHeight / 1.65);
-    ctx.fillText("PARAMETRES", gameWidth / 2, gameHeight / 1.4);
-    ctx.fillText("QUITTER", gameWidth / 2, gameHeight / 1.2);
-
-    running = true;
-}
-
-displayMainMenu();
-
-
 // Fonction démarrant le jeu
-//gameStart();
+gameStart();
 
 // Initialisation du jeu
 function gameStart(){

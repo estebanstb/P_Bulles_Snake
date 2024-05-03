@@ -22,6 +22,7 @@ body{
     height: 850px;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 #gameBoard{
@@ -30,12 +31,41 @@ body{
     background-color: #add8c1;
 }
 
+#controls {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    font-size: 35px;
+}
+
+#controls p{
+    color : #273608; 
+    font-size: 65px;
+    margin: 10px;
+    padding: 0px 20px 100px;
+}
+
+#controls a {
+    display: block;
+    margin: 10px;
+    padding: 10px 20px ;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #273608;
+}
+
+#controls a:hover {
+    cursor: pointer;
+    color: white;
+}
+
 #scoreText{
     font-family: 'NokiaFont', sans-serif;
     font-size: 60px;
 }
 
-button{
+#resetBtn{
     color: #e8e6e3;
     background-color: #181a1b;
     text-align: center;
@@ -46,4 +76,9 @@ button{
     border: 4px solid;
     border-radius: 12px;
     cursor: pointer;
+}
+
+#resetBtn:hover {
+    cursor: pointer;
+    background-color: #da190b;
 }
