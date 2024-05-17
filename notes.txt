@@ -1,0 +1,6 @@
+NOTES DIVERSES - SNAKE
+
+
+Mode Facile 	: 100
+Mode Normal 	: 75
+Mode Difficile 	: 403

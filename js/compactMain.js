@@ -1,10 +1,11 @@
-// Projet : P_Bulles_Snake-PCX
-// Auteur : LEBET Esteban
-// Classe : CIN1B
-// Date : 19.04.2024
-// Description : Réplique du jeu "Snake"
-// Lieu : ETML, Sébeillon
-
+/////////////////////////////////////////////////////////////////////////////////////////
+// Projet : R-P_APPROFONDISSEMENT_&_REMEDIATION_Snake                                  //
+// Auteur : LEBET Esteban                                                              //
+// Classe : CIN1B                                                                      //
+// Date : 19.04.2024                                                                   //
+// Description : Réplique du jeu "Snake", mix de trois autres code compacté en un seul //
+// Lieu : ETML, Sébeillon                                                              //
+/////////////////////////////////////////////////////////////////////////////////////////
 
 // Constantes définissant des éléments du jeu
 const gameBoard = document.querySelector("#gameBoard"); // Définit la planche de jeu du HTML dans le JavaScript
@@ -24,7 +25,7 @@ let gameNumber = 1;
 let running = false;
 let xVelocity = unitSize;
 let yVelocity = 0;
-let gameSpeed = 75;
+let gameSpeed = 40;
 let foodX;
 let foodY;
 let score = 0;

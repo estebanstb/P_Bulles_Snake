@@ -1,3 +1,12 @@
+/**********************************************************************/
+/* Projet : Snake en JavaScript                                       */
+/* Auteur : LEBET Esteban                                             */
+/* Classe : CID1B                                                     */
+/* Date : 19.04.2024                                                  */
+/* Description : Fichier de style s'occupant de l'esthétique du Snake */
+/* Lieu : ETML, Sébeillon                                             */
+/**********************************************************************/
+
 @font-face {
     font-family: 'Terasong';
     src: url(../font/Terasong.ttf) format('truetype');
@@ -8,13 +17,13 @@
     src: url(../font/nokiaFont.ttf) format('truetype');
 }
 
-body{
+body {
     background-color: #181a1b;
     color: #e8e6e3;
     font-family: 'NokiaFont', sans-serif;
 }
 
-#gameContainer{
+#gameContainer {
     color: #e8e6e3;
     text-align: center;
     display: flex;
@@ -25,10 +34,42 @@ body{
     position: relative;
 }
 
-#gameBoard{
+#gameBoard {
     border: 3px solid;
     border-color: #736b5e;
     background-color: #add8c1;
+    position: relative;
+}
+
+#sliderContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slider {
+    width: 300px; /* Ajuste la largeur du slider selon tes besoins */
+}
+
+#backButton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #e8e6e3;
+    text-decoration: none;
+    font-size: 24px;
+    font-family: 'NokiaFont', sans-serif;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10; /* Assure que le bouton soit au-dessus du canvas */
+}
+
+#backButton:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
 }
 
 #controls {
@@ -39,8 +80,8 @@ body{
     font-size: 35px;
 }
 
-#controls p{
-    color : #273608; 
+#controls p {
+    color: #273608;
     font-size: 65px;
     margin: 10px;
     padding: 0px 20px 100px;
@@ -49,7 +90,7 @@ body{
 #controls a {
     display: block;
     margin: 10px;
-    padding: 10px 20px ;
+    padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
     color: #273608;
@@ -60,19 +101,19 @@ body{
     color: white;
 }
 
-#scoreText{
+#scoreText {
     font-family: 'NokiaFont', sans-serif;
     font-size: 60px;
 }
 
-#resetBtn{
+#resetBtn {
     color: #e8e6e3;
     background-color: #181a1b;
     text-align: center;
     font-family: 'NokiaFont', sans-serif;
     font-size: 20px;
-    width: 100;
-    height: 50;
+    width: 100px;
+    height: 50px;
     border: 4px solid;
     border-radius: 12px;
     cursor: pointer;
