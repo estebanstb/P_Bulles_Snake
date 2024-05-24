@@ -12,6 +12,9 @@ const gameBoard = document.querySelector("#gameBoard"); // Définit la planche d
 const ctx = gameBoard.getContext("2d");
 const scoreText = document.querySelector("#scoreText"); // Définit le score du jeu du HTML dans le JavaScript
 const resetBtn = document.querySelector("#resetBtn"); //  Définit le bouton de reset du HTML dans le JavaScript
+const easyBtn = document.querySelector("#easyBtn");
+const normalBtn = document.querySelector("#normalBtn");
+const hardBtn = document.querySelector("#hardBtn");
 const gameWidth = gameBoard.width; // Définir la largeur de la planche de jeu
 const gameHeight = gameBoard.height; // Définir la hauteur de la planche de jeu
 const boardBackground = "#add8c1"; // Couleur du fond de la planche du jeu
@@ -25,7 +28,8 @@ let gameNumber = 1;
 let running = false;
 let xVelocity = unitSize;
 let yVelocity = 0;
-let gameSpeed = 40;
+let gameSpeed = 75;
+
 let foodX;
 let foodY;
 let score = 0;
@@ -40,6 +44,9 @@ let snake = [
 // Référence les touches du claviers et le click de la souris pour le bouton RESET
 window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
+/*easyBtn.addEventListener("click", easyMode);
+normalBtn.addEventListener("click", normalMode);
+hardBtn.addEventListener("click", hardMode);*/
 
 // Effacer le contenu du gameboard
 function clearBoard(){
@@ -213,3 +220,15 @@ function resetGame(){
     ];
     gameStart();
 };
+
+/*function easyMode(){
+    gameSpeed = 100;
+};
+
+function normalMode(){
+    gameSpeed = 75;
+};
+
+function hardMode(){
+    gameSpeed = 40;
+};*/

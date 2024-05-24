@@ -12,15 +12,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Jeu - Esteban</title>
+    <title>Snake Esteban - Paramètres</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="gameContainer">
         <a href="index.html" id="backButton"><- RETOUR </a> <!-- Flèche de retour -->
         <canvas id="gameBoard" width="600" height="600"></canvas>
-        <div id="sliderContainer">
-            <input type="range" min="1" max="100" value="50" class="slider">
+        <div id="colorInputsContainer">
+            <div class="colorInputRow">
+                <label for="colorInput1">Couleur du Fond</label>
+                <input type="color" id="colorInput1" name="color1" value="#add8c1">
+            </div>
+            <div class="colorInputRow">
+                <label for="colorInput2">Couleur Serpent</label>
+                <input type="color" id="colorInput2" name="color2" value="#273608">
+            </div>
+        </div>
+        <div id="controlsDifficulty">
+            <button class="difficultyBtn" id="easyBtn" href="jouer.html">FACILE</button>
+            <button class="difficultyBtn" id="normalBtn">NORMAL</button>
+            <button class="difficultyBtn" id="hardBtn">DIFFICILE</button>
         </div>
         <div id="scoreText"></div>
     </div>

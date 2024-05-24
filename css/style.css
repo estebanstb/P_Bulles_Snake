@@ -123,3 +123,90 @@ body {
     cursor: pointer;
     background-color: #da190b;
 }
+
+.controlsDifficulty {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.difficultyBtn {
+    display: block;
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #181a1b;
+    color: #e8e6e3;
+    font-family: 'NokiaFont', sans-serif;
+    font-size: 20px;
+    border: 3px solid #736b5e;
+    cursor: pointer;
+}
+
+.difficultyBtn:hover {
+    background-color: #e8e6e3;
+    color: #181a1b;
+    border-color: #e8e6e3;
+}
+
+#colorInputsContainer {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#controlsDifficulty {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+}
+
+.colorInputRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.colorInputRow label {
+    color: #e8e6e3;
+    font-family: 'NokiaFont', sans-serif;
+    font-size: 20px;
+}
+
+#colorInputsContainer input[type="color"] {
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.difficultyBtn {
+    display: block;
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #181a1b;
+    color: #e8e6e3;
+    font-family: 'NokiaFont', sans-serif;
+    font-size: 20px;
+    border: 3px solid #736b5e;
+    cursor: pointer;
+}
+
+.difficultyBtn:hover {
+    background-color: #e8e6e3;
+    color: #181a1b;
+    border-color: #e8e6e3;
+}
